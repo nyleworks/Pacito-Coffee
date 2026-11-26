@@ -1,0 +1,95 @@
+/* Pacito Coffee — page-level styles layered on the design system components.
+   Same rules: five flat inks, crisp borders, square corners, offset blocks instead of shadows. */
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { overflow-x: hidden; }
+[hidden] { display: none !important; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; left: var(--space-4); top: -60px; z-index: 100; padding: 10px 14px; background: var(--marigold); color: var(--on-marigold); border: var(--stroke-3) solid var(--midnight-ink); font-family: var(--font-display); text-transform: uppercase; text-decoration: none; }
+.skip-link:focus { top: var(--space-2); outline: var(--stroke-3) solid var(--focus-ring); outline-offset: 3px; }
+
+/* ---------- header nav ---------- */
+.brand-link { text-decoration: none; }
+.brand-link:focus-visible { outline: var(--stroke-3) solid var(--focus-ring); outline-offset: 3px; }
+.pc-header { grid-template-areas: "brand find" "status status" "nav nav"; }
+.site-nav { grid-area: nav; margin: 0 calc(var(--space-4) * -1) -12px; border-top: var(--stroke-2) solid var(--midnight-ink); overflow-x: auto; scrollbar-width: none; }
+.site-nav::-webkit-scrollbar { display: none; }
+.site-nav ul { display: flex; gap: 0; margin: 0; padding: 0 var(--space-4); list-style: none; }
+.site-nav a { display: block; padding: 10px 10px 9px; font-family: var(--font-display); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--midnight-ink); text-decoration: none; white-space: nowrap; }
+.site-nav a:hover, .site-nav a[aria-current="true"] { text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: var(--marigold); text-underline-offset: 5px; }
+.site-nav a:focus-visible { outline: var(--stroke-3) solid var(--focus-ring); outline-offset: -3px; }
+@media (min-width: 600px) {
+  .pc-header { grid-template-columns: auto 1fr auto; grid-template-areas: "brand status find" "nav nav nav"; }
+  .site-nav ul { justify-content: center; }
+}
+@media (min-width: 960px) {
+  .pc-header { grid-template-columns: auto auto 1fr auto; grid-template-areas: "brand status nav find"; padding-bottom: 10px; }
+  .pc-header__status { justify-self: start; }
+  .site-nav { margin: 0; border-top: 0; }
+  .site-nav ul { justify-content: flex-end; padding: 0; }
+}
+.pc-section { scroll-margin-top: 130px; }
+@media (min-width: 960px) { .pc-section { scroll-margin-top: 72px; } }
+
+/* ---------- menu extras ---------- */
+.item-row { display: flex; justify-content: space-between; gap: var(--space-3); }
+.item-row b { font-weight: 700; white-space: nowrap; }
+.price-line { margin-top: var(--space-4) !important; }
+.fine-print { margin: 0; }
+
+/* ---------- about ---------- */
+.side-note { margin: var(--space-6) 0 0; font-family: var(--font-marker); font-size: 18px; line-height: 1.25; transform: rotate(-2deg); transform-origin: left; }
+
+/* ---------- social wall ---------- */
+.pc-section__inner--wide { max-width: 960px; }
+.pc-section__inner--wide .pc-section__head { max-width: 640px; }
+.wall { list-style: none; margin: 0 0 var(--space-8); padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6) var(--space-4); }
+@media (min-width: 720px) { .wall { grid-template-columns: repeat(3, 1fr); gap: var(--space-8) var(--space-6); } }
+.wall li { transform: rotate(var(--tilt, 0deg)); }
+.polaroid { display: block; width: 100%; padding: 8px 8px 0; background: var(--paper); color: var(--midnight-ink); border: var(--stroke-3) solid var(--midnight-ink); box-shadow: var(--offset-ink); font: inherit; text-align: left; cursor: zoom-in; position: relative; transition: transform .08s ease-out, box-shadow .08s ease-out; }
+.polaroid:hover { transform: translate(-1px, -1px); }
+.polaroid:active { transform: translate(4px, 4px); box-shadow: none; }
+.polaroid:focus-visible { outline: var(--stroke-3) solid var(--focus-ring); outline-offset: 3px; }
+.polaroid__art { display: block; aspect-ratio: 1; border: var(--stroke-3) solid var(--midnight-ink); overflow: hidden; }
+.polaroid__art svg { display: block; width: 100%; height: 100%; }
+.polaroid__cap { display: block; padding: 8px 2px 10px; }
+.polaroid__handle { display: block; font-weight: 700; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.polaroid__note { display: block; font-family: var(--font-marker); font-size: 17px; line-height: 1.15; }
+.polaroid__pin { position: absolute; top: -12px; left: 50%; translate: -50% 0; z-index: 1; }
+.wall__cta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-4); }
+.wall__cta .pc-btn { flex: 1 1 220px; }
+
+.viewer { width: min(92vw, 520px); padding: 0; border: var(--stroke-3) solid var(--midnight-ink); box-shadow: var(--offset-ink); color: var(--midnight-ink); }
+.viewer::backdrop { background: rgba(22, 34, 56, .62); }
+.viewer__art { border-bottom: var(--stroke-3) solid var(--midnight-ink); aspect-ratio: 1; }
+.viewer__art svg { display: block; width: 100%; height: 100%; }
+.viewer__text { margin: 0; padding: var(--space-4); }
+
+/* ---------- stamp card ---------- */
+.stampcard { margin-bottom: var(--space-8); }
+.stampcard__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-4); background: var(--periwinkle); border-bottom: var(--stroke-3) solid var(--midnight-ink); }
+.stampcard__grid { list-style: none; margin: 0; padding: var(--space-6) var(--space-4); display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4) var(--space-3); background-color: var(--paper); }
+.stamp { position: relative; aspect-ratio: 1; display: grid; place-items: center; border: var(--stroke-3) dashed var(--midnight-ink); border-radius: var(--radius-pill); font-weight: 700; font-size: 13px; }
+.stamp__n { color: var(--midnight-ink); }
+.stamp svg { position: absolute; inset: -4px; width: calc(100% + 8px); height: calc(100% + 8px); transform: rotate(var(--rot, -8deg)); }
+.stamp.is-filled { border-style: solid; }
+.stamp.is-filled .stamp__n { visibility: hidden; }
+.stamp.is-new svg { animation: pc-stamp .28s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes pc-stamp { from { transform: rotate(var(--rot)) scale(1.6); } }
+@media (prefers-reduced-motion: reduce) { .stamp.is-new svg { animation: none; } }
+.stamp--free { background: var(--marigold); border-style: solid; font-family: var(--font-display); font-weight: 400; font-size: 12px; letter-spacing: .03em; }
+.stampcard__foot { display: grid; gap: var(--space-3); padding: var(--space-4); border-top: var(--stroke-3) solid var(--midnight-ink); }
+.stampcard__foot p { margin: 0; }
+.how-stamps { padding: 0; margin-bottom: var(--space-4); }
+@media (min-width: 560px) { .stampcard__grid { gap: var(--space-6) var(--space-4); padding: var(--space-8) var(--space-6); } .stamp { font-size: 15px; } }
+
+/* ---------- hours ---------- */
+.hours__table { width: 100%; border-collapse: collapse; }
+.hours__table th, .hours__table td { padding: 10px var(--space-4); text-align: left; border-bottom: var(--stroke-2) dashed var(--midnight-ink); font-weight: 400; }
+.hours__table td { text-align: right; }
+.hours__table tr.is-open th, .hours__table tr.is-open td { font-weight: 700; }
+.hours__table tr.is-today { background: var(--marigold); }
+.hours__table tr.is-today th::after { content: " · TODAY"; font-family: var(--font-display); font-size: 11px; letter-spacing: .04em; }
+.hours__note { margin: 0; padding: var(--space-3) var(--space-4) var(--space-4); }

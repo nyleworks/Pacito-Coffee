@@ -1,0 +1,38 @@
+/* Pacito Coffee design tokens — generated from the Pacita Coffee design system tokens.json */
+:root {
+  --paper: #f4efe2;
+  --midnight-ink: #162238;
+  --slate-panel: #2b3240;
+  --marigold: #e6a838;
+  --periwinkle: #7c97f2;
+  --surface: #f4efe2;
+  --ink: #162238;
+  --on-slate: #f4efe2;
+  --on-marigold: #162238;
+  --focus-ring: #162238;
+  --focus-ring-on-slate: #e6a838;
+  --font-display: "Archivo Black", "Rubik", Impact, "Arial Black", sans-serif;
+  --font-marker: "Patrick Hand", "Caveat Brush", "Comic Sans MS", cursive;
+  --font-mono: "Space Mono", "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --radius-0: 0;
+  --radius-2: 2px;
+  --radius-pill: 999px;
+  --offset-ink: 4px 4px 0 0 #162238;
+  --offset-ink-sm: 2px 2px 0 0 #162238;
+  --offset-paper: 4px 4px 0 0 #f4efe2;
+  --stroke-2: 2px;
+  --stroke-3: 3px;
+  --stroke-rule: 12px;
+  --tilt-ribbon: -3deg;
+  --tilt-punch: -2deg;
+  --tilt-tag: 6deg;
+  --pattern-opacity: 0.12;
+  --grain-opacity: 0.08;
+}
